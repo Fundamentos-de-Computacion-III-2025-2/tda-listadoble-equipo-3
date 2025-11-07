@@ -16,13 +16,13 @@ public class ListaDoble {
         }
     }
 
-    //Metodo para agregar un NodoDoble al Inicio de la Lista Doble
+    //Metodo para agregar un NodoDoble al Inicio de la Lista Doble JOAQUIN
     public void insertarInicio(int dato){
 
 
     }
 
-    //Metodo para insertar al Final de la lista doble
+    //Metodo para insertar al Final de la lista doble,ERICK
     public void insertarFinal(int dato){
 
     }
@@ -33,30 +33,31 @@ public class ListaDoble {
     número mayor al elemento que se encuentre en la lista, si no se encuentar un dato mayor
     se inserta al final */
 
+    //JAVIER
     public void insertarEnOrden(int dato){
 
     }
 
 
-    //Eliminar al inicio
+    //Eliminar al inicio VICTORIA
     public int eliminarInicio(){
 
         return -1;
     }
 
-    //Eliminar al final
+    //Eliminar al final JAVIER
     public int eliminarFinal(){
 
         return -1;
     }
 
-    //Eliminar un elemento
+    //Eliminar un elemento ERICK
     public int eliminarElemento(int elemento){
 
         return elemento;
     }
 
-    //Metodo para buscar un elemento
+    //Metodo para buscar un elemento JOAQUIN
     public boolean buscarElemento(int elemento){
 
         return false;
@@ -73,7 +74,7 @@ public class ListaDoble {
         }
     }
 
-    //Imprimir los datos de la lista doble de fin a inicio
+    //Imprimir los datos de la lista doble de fin a inicio VICTORIA
     public void mostrarFinInicio(){
 
     }
