@@ -33,7 +33,7 @@ public class ListaDoble {
     número mayor al elemento que se encuentre en la lista, si no se encuentar un dato mayor
     se inserta al final */
 
-    //JAVIER
+    //JAVIERR
     public void insertarEnOrden(int dato){
 
     }
