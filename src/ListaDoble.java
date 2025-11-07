@@ -41,6 +41,7 @@ public class ListaDoble {
 
     //Eliminar al inicio VICTORIA
     public int eliminarInicio(){
+        //holaaa
 
         return -1;
     }
