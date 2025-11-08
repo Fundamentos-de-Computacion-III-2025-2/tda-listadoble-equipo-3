@@ -16,7 +16,7 @@ public class ListaDoble {
         }
     }
 
-    //Metodo para agregar un NodoDoble al Inicio de la Lista Doble JOAQUIN
+    //Metodo para agregar un NodoDoble al Inicio de la Lista Doble JOAQUIN.
     public void insertarInicio(int dato){
 
 
