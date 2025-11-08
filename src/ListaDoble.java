@@ -41,10 +41,22 @@ public class ListaDoble {
 
     //Eliminar al inicio VICTORIA
     public int eliminarInicio(){
-        //holaaa
+        int elemento = -1;
+        if (!listaVacia()) {
+            elemento = inicio.dato;
+            if (inicio == fin) {
+                inicio=null;
+                fin = null;
+            }
+            else {
+                inicio=inicio.siguiente;
+                fin = null;
+            }
+        }
+        return elemento;
 
-        return -1;
     }
+
 
     //Eliminar al final JAVIER
     public int eliminarFinal(){
@@ -77,6 +89,16 @@ public class ListaDoble {
 
     //Imprimir los datos de la lista doble de fin a inicio VICTORIA
     public void mostrarFinInicio(){
+        if (fin == null) {
+            System.out.println("\nLa lista está vacía. No hay nada que mostrar.");
+            return;
+        }
+        NodoDoble actual=fin;
+        System.out.println();;
+        while (actual!=null){
+            System.out.println(actual.dato+" -->");
+            actual=actual.anterior;
+        }
 
     }
 
