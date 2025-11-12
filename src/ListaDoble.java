@@ -20,6 +20,7 @@ public class ListaDoble {
     public void insertarInicio(int dato){
 
 
+
     }
 
     //Metodo para insertar al Final de la lista doble,ERICK
@@ -41,18 +42,17 @@ public class ListaDoble {
 
     //Eliminar al inicio VICTORIA
     public int eliminarInicio(){
-        int elemento = -1;
-        if (!listaVacia()) {
-            elemento = inicio.dato;
+        int elemento=inicio.dato;
+
             if (inicio == fin) {
                 inicio=null;
-                fin = null;
+                fin=null;
+
             }
             else {
                 inicio=inicio.siguiente;
-                fin = null;
+                inicio.anterior = null;
             }
-        }
         return elemento;
 
     }
@@ -96,7 +96,7 @@ public class ListaDoble {
         NodoDoble actual=fin;
         System.out.println();;
         while (actual!=null){
-            System.out.println(actual.dato+" -->");
+            System.out.print(actual.dato+" --> ");
             actual=actual.anterior;
         }
 
