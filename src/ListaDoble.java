@@ -27,12 +27,7 @@ public class ListaDoble {
             fin = nuevoNodo;
         }
 
-        //lista no vacía
-        else {
-            nuevoNodo.siguiente = inicio;
-            inicio.anterior = nuevoNodo;
-            inicio = nuevoNodo;
-        }
+
     }
 
     //Metodo para insertar al Final de la lista doble,ERICK
@@ -53,10 +48,22 @@ public class ListaDoble {
 
 
     //Eliminar al inicio VICTORIA
-    public int eliminarInicio() {
+    public int eliminarInicio(){
+        int elemento=inicio.dato;
 
-        return -1;
+            if (inicio == fin) {
+                inicio=null;
+                fin=null;
+
+            }
+            else {
+                inicio=inicio.siguiente;
+                inicio.anterior = null;
+            }
+        return elemento;
+
     }
+
 
     //Eliminar al final JAVIER
     public int eliminarFinal() {
@@ -130,7 +137,17 @@ public class ListaDoble {
     }
 
     //Imprimir los datos de la lista doble de fin a inicio VICTORIA
-    public void mostrarFinInicio() {
+    public void mostrarFinInicio(){
+        if (fin == null) {
+            System.out.println("\nLa lista está vacía. No hay nada que mostrar.");
+            return;
+        }
+        NodoDoble actual=fin;
+        System.out.println();;
+        while (actual!=null){
+            System.out.print(actual.dato+" --> ");
+            actual=actual.anterior;
+        }
 
     }
 
