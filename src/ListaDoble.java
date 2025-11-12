@@ -41,8 +41,44 @@ public class ListaDoble {
     número mayor al elemento que se encuentre en la lista, si no se encuentar un dato mayor
     se inserta al final */
 
-    //JAVIER
-    public void insertarEnOrden(int dato) {
+    //JAVIERR
+    public void insertarEnOrden(int dato){
+        NodoDoble nuevo = new NodoDoble(dato);
+
+        //caso 1: lista vacia
+        if(inicio==null){
+            inicio = fin= nuevo;
+            return;
+        }
+        NodoDoble actual = inicio;
+
+        //buscar el primer nodo mayor a dato o llegar al final
+        while(actual != null && actual.dato < dato){
+            actual=actual.siguiente;
+        }
+
+        //Insertar al inicio(dato menor)
+        if(actual==inicio){
+            nuevo.siguiente = inicio;
+            inicio.anterior = nuevo;
+            inicio=nuevo;
+        }
+
+        //insertar al final ( dato mayor que todos)
+        else if(actual==null){
+            fin.siguiente= nuevo;
+            nuevo.anterior = fin;
+            fin=nuevo;
+        }
+
+        //insertar en medio (antes de un dato mayor)
+        else{
+            nuevo.siguiente= actual;
+            nuevo.anterior = actual.anterior;
+            actual.anterior.siguiente= nuevo;
+            actual.anterior = nuevo;
+        }
+
 
     }
 
@@ -68,44 +104,24 @@ public class ListaDoble {
     //Eliminar al final JAVIER
     public int eliminarFinal() {
 
-        return -1;
+       int elemento = fin.dato;
+        //si solo solo hay un nodo
+        if(inicio==fin){
+            inicio=fin=null;
+        }
+        //si hay mas de un nodo
+        else{
+            fin = fin.anterior;
+            fin.siguiente = null;
+        }
+        return elemento;
+
     }
 
     //Eliminar un elemento ERICK
     public int eliminarElemento(int elemento) {
 
-        if (listaVacia()) {
-            throw new RuntimeException("La lista está vacía. No se puede eliminar.");
-        }
-
-        NodoDoble actual = inicio;
-        int elementoEliminado;
-        while (actual != null && actual.dato != elemento) {
-            actual = actual.siguiente;
-        }
-        if (actual == null) {
-            return -1;
-        }
-
-        elementoEliminado = actual.dato;
-        if (inicio == fin) {
-            inicio = null;
-            fin = null;
-        }
-        else if (actual == inicio) {
-            inicio = inicio.siguiente;
-            inicio.anterior = null;
-        }
-        else if (actual == fin) {
-            fin = fin.anterior;
-            fin.siguiente = null;
-        }
-        else {
-            actual.anterior.siguiente = actual.siguiente;
-            actual.siguiente.anterior = actual.anterior;
-        }
-
-        return elementoEliminado;
+        return -1;
     }
 
     //Metodo para buscar un elemento
