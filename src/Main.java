@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
 
@@ -24,6 +25,7 @@ public class Main {
                 "10. Salir\n","Menú de opciones",3));
         */
         public static void main(String[] args) {
+
 
             int opcion = 0;
             int elemento;
