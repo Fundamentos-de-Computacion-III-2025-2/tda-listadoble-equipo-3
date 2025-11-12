@@ -33,11 +33,11 @@ public class Main {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
                             "1. Insertar un elemento al inicio\n"+ //TODO @
-                                    "2. Insertar un elemento al final\n"+ //TODO @
+                                    "2. Insertar un elemento al final\n"+
                                     "3. Insertar un elemento en orden\n"+ //TODO @
                                     "4. Eliminar un elemento al inicio\n"+ //TODO @
                                     "5. Eliminar un elemento al final\n"+ //TODO @
-                                    "6. Eliminar un elemento\n"+ //TODO @
+                                    "6. Eliminar un elemento\n"+
                                     "7. Buscar un elemento\n"+ //TODO @
                                     "8. Mostrar los datos de inicio a fin\n"+ //TODO @
                                     "9. Mostrar los datos de fin a inicio\n"+ //TODO @
