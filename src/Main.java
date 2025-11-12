@@ -53,13 +53,54 @@ public class Main {
                                 JOptionPane.showMessageDialog(null, "Error " + n.getMessage(), "Error de ingreso", 0 );
                             }
                             break;
-                        case 2://Insertar un elemento al final TODO @
+
+                        case 2://Insertar un elemento al final
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento: ",
+                                        "Insertar al Final: ", 3));
+                                lista.insertarFinal(elemento);
+                                JOptionPane.showMessageDialog(null, "El elemento " + elemento + " ha sido insertado al final.", "Insertar al Final", 1);
+                            } catch (NumberFormatException n) {
+                                JOptionPane.showMessageDialog(null, "Error" + n.getMessage(), "Error de ingreso", 0);
+                            }
                             break;
+
                         case 3: //Insertar en orden TODO @
                             break;
                         case 4: //Eliminar al inicio TODO @
                             break;
+
                         case 5: //Eliminar al final TODO @
+                          break;
+
+                        case 6: //Eliminar
+
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento a eliminar: ",
+                                        "Eliminar Elemento Específico", 3));
+
+                                int resultadoEliminar = lista.eliminarElemento(elemento);
+
+                                if (resultadoEliminar != -1) {
+                                    JOptionPane.showMessageDialog(null,
+                                            "Se eliminó el elemento " + elemento,
+                                            "Eliminar Elemento Específico", 1);
+                                } else {
+                                    JOptionPane.showMessageDialog(null,
+                                            "El elemento " + elemento + " no se encuentra en la lista.",
+                                            "Eliminar Elemento Específico", 1);
+                                }
+                            } catch (NumberFormatException n) {
+                                JOptionPane.showMessageDialog(null,
+                                        "Ingrese un valor numérico",
+                                        "Error de Ingreso", 0);
+                            } catch (RuntimeException e) {
+                                JOptionPane.showMessageDialog(null,
+                                        "Error: " + e.getMessage(),
+                                        "Error de la Lista", 1);
+                            }
                             break;
                         case 6: //Eliminar TODO @
                             break;
