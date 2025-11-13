@@ -7,6 +7,7 @@ public class ListaDoble {
         fin = null;
     }
 
+
     //Metodo para saber si la lista doble está vacía
     public boolean listaVacia() {
         if (inicio == null) {
@@ -25,17 +26,26 @@ public class ListaDoble {
             inicio = nuevoNodo;
             fin = nuevoNodo;
         }
-
-        //lista no vacía
-        else {
-            nuevoNodo.siguiente = inicio;
-            inicio.anterior = nuevoNodo;
-            inicio = nuevoNodo;
-        }
+        
+      else {
+        nuevoNodo.siguiente = inicio;
+        inicio.anterior = nuevoNodo;
+        inicio = nuevoNodo;
+      }
     }
 
-    //Metodo para insertar al Final de la lista doble,ERICK
-    public void insertarFinal(int dato) {
+
+    public void insertarFinal(int dato){
+        NodoDoble elemento = new NodoDoble(dato);
+
+        if (listaVacia()) {
+            inicio = elemento;
+            fin = elemento;
+        } else {
+            fin.siguiente = elemento;
+            elemento.anterior = fin;
+            fin = elemento;
+        }
 
     }
 
@@ -45,28 +55,117 @@ public class ListaDoble {
     número mayor al elemento que se encuentre en la lista, si no se encuentar un dato mayor
     se inserta al final */
 
-    //JAVIER
-    public void insertarEnOrden(int dato) {
+    //JAVIERR
+    public void insertarEnOrden(int dato){
+        NodoDoble nuevo = new NodoDoble(dato);
+
+        //caso 1: lista vacia
+        if(inicio==null){
+            inicio = fin= nuevo;
+            return;
+        }
+        NodoDoble actual = inicio;
+
+        //buscar el primer nodo mayor a dato o llegar al final
+        while(actual != null && actual.dato < dato){
+            actual=actual.siguiente;
+        }
+
+        //Insertar al inicio(dato menor)
+        if(actual==inicio){
+            nuevo.siguiente = inicio;
+            inicio.anterior = nuevo;
+            inicio=nuevo;
+        }
+
+        //insertar al final ( dato mayor que todos)
+        else if(actual==null){
+            fin.siguiente= nuevo;
+            nuevo.anterior = fin;
+            fin=nuevo;
+        }
+
+        //insertar en medio (antes de un dato mayor)
+        else{
+            nuevo.siguiente= actual;
+            nuevo.anterior = actual.anterior;
+            actual.anterior.siguiente= nuevo;
+            actual.anterior = nuevo;
+        }
+
 
     }
 
 
     //Eliminar al inicio VICTORIA
-    public int eliminarInicio() {
+    public int eliminarInicio(){
+        int elemento=inicio.dato;
 
-        return -1;
+            if (inicio == fin) {
+                inicio=null;
+                fin=null;
+
+            }
+            else {
+                inicio=inicio.siguiente;
+                inicio.anterior = null;
+            }
+        return elemento;
+
     }
+
 
     //Eliminar al final JAVIER
     public int eliminarFinal() {
 
-        return -1;
+       int elemento = fin.dato;
+        //si solo solo hay un nodo
+        if(inicio==fin){
+            inicio=fin=null;
+        }
+        //si hay mas de un nodo
+        else{
+            fin = fin.anterior;
+            fin.siguiente = null;
+        }
+        return elemento;
+
     }
 
     //Eliminar un elemento ERICK
     public int eliminarElemento(int elemento) {
+        if (listaVacia()) {
+            throw new RuntimeException("La lista está vacía. No se puede eliminar.");
+        }
 
-        return elemento;
+        NodoDoble actual = inicio;
+        int elementoEliminado;
+        while (actual != null && actual.dato != elemento) {
+            actual = actual.siguiente;
+        }
+        if (actual == null) {
+            return -1;
+        }
+
+        elementoEliminado = actual.dato;
+        if (inicio == fin) {
+            inicio = null;
+            fin = null;
+        }
+        else if (actual == inicio) {
+            inicio = inicio.siguiente;
+            inicio.anterior = null;
+        }
+        else if (actual == fin) {
+            fin = fin.anterior;
+            fin.siguiente = null;
+        }
+        else {
+            actual.anterior.siguiente = actual.siguiente;
+            actual.siguiente.anterior = actual.anterior;
+        }
+
+        return elementoEliminado;
     }
 
     //Metodo para buscar un elemento
@@ -98,7 +197,20 @@ public class ListaDoble {
     }
 
     //Imprimir los datos de la lista doble de fin a inicio VICTORIA
-    public void mostrarFinInicio() {
+    public void mostrarFinInicio(){
+        if (fin == null) {
+            System.out.println("\nLa lista está vacía. No hay nada que mostrar.");
+            return;
+        }
+        NodoDoble actual=fin;
+        System.out.println();;
+        while (actual!=null){
+            System.out.print(actual.dato+" --> ");
+            actual=actual.anterior;
+
+        }
+
+
 
     }
 
