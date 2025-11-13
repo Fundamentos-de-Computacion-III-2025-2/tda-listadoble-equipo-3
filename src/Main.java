@@ -61,6 +61,13 @@ public class Main {
                             }
                             break;
                         case 4: //Eliminar al inicio
+                         if (lista.listaVacia()) {
+                                System.out.println("\n> La lista está vacía. No se puede eliminar.");
+                            } else {
+                                int elementoEliminado = lista.eliminarInicio();
+                                System.out.println("\n> El nodo inicial ha sido eliminado.");
+                                System.out.println("> Elemento eliminado: " + elementoEliminado);
+                            }
                             break;
                         case 5: //Eliminar al final
                             if (lista.listaVacia()) {
@@ -76,12 +83,21 @@ public class Main {
                         case 7: //Buscar elemento
                             break;
                         case 8: //MostrarLista
-                            lista.mostrarInicioFin();
+                            if (lista.listaVacia()) {
+                                System.out.println("\n> La lista está vacía. No se puede eliminar.");
+                            } else {
+                                lista.mostrarInicioFin();
+                            }
                             break;
                         case 9: //MostrarLista
-                            lista.mostrarFinInicio();
+                             if (lista.listaVacia()) {
+                                System.out.println("\n> La lista está vacía..");
+                            } else {
+                                lista.mostrarFinInicio();
+                            }
                             break;
-                        case 10: //Salir
+
+                        case 10:
                             JOptionPane.showMessageDialog(null, "Programa Finalizado");
                             break;
                         default:

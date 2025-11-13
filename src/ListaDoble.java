@@ -163,7 +163,10 @@ public class ListaDoble {
         while (actual!=null){
             System.out.print(actual.dato+" --> ");
             actual=actual.anterior;
+
         }
+
+
 
     }
 
