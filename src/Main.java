@@ -32,39 +32,57 @@ public class Main {
             do {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
-                            "1. Insertar un elemento al inicio\n"+ //TODO @
-                                    "2. Insertar un elemento al final\n"+ //TODO @
-                                    "3. Insertar un elemento en orden\n"+ //TODO @
-                                    "4. Eliminar un elemento al inicio\n"+ //TODO @
-                                    "5. Eliminar un elemento al final\n"+ //TODO @
-                                    "6. Eliminar un elemento\n"+ //TODO @
-                                    "7. Buscar un elemento\n"+ //TODO @
-                                    "8. Mostrar los datos de inicio a fin\n"+ //TODO @
-                                    "9. Mostrar los datos de fin a inicio\n"+ //TODO @
+                            "1. Insertar un elemento al inicio\n"+
+                                    "2. Insertar un elemento al final\n"+
+                                    "3. Insertar un elemento en orden\n"+
+                                    "4. Eliminar un elemento al inicio\n"+
+                                    "5. Eliminar un elemento al final\n"+
+                                    "6. Eliminar un elemento\n"+
+                                    "7. Buscar un elemento\n"+
+                                    "8. Mostrar los datos de inicio a fin\n"+
+                                    "9. Mostrar los datos de fin a inicio\n"+
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
-                        case 1://Insertar un elemento al inicio TODO @
+                        case 1:
                             break;
-                        case 2://Insertar un elemento al final TODO @
+                        case 2:
                             break;
-                        case 3: //Insertar en orden TODO @
+                        case 3:
                             break;
-                        case 4: //Eliminar al inicio TODO @
+                        case 4:
+                            if (lista.listaVacia()) {
+                                System.out.println("\n> La lista está vacía. No se puede eliminar.");
+                            } else {
+                                int elementoEliminado = lista.eliminarInicio();
+                                System.out.println("\n> El nodo inicial ha sido eliminado.");
+                                System.out.println("> Elemento eliminado: " + elementoEliminado);
+                            }
+
                             break;
-                        case 5: //Eliminar al final TODO @
+                        case 5:
                             break;
-                        case 6: //Eliminar TODO @
+                        case 6:
                             break;
-                        case 7: //Buscar elemento TODO @
+                        case 7:
                             break;
-                        case 8: //MostrarLista TODO @
-                            lista.mostrarInicioFin();
+                        case 8:
+                            if (lista.listaVacia()) {
+                                System.out.println("\n> La lista está vacía. No se puede eliminar.");
+                            } else {
+                                lista.mostrarInicioFin();
+                            }
+
                             break;
-                        case 9: //MostrarLista TODO @
-                            lista.mostrarFinInicio();
+                        case 9:
+                            if (lista.listaVacia()) {
+                                System.out.println("\n> La lista está vacía..");
+                            } else {
+                                lista.mostrarFinInicio();
+                            }
                             break;
-                        case 10: //Salir
+
+                        case 10:
                             JOptionPane.showMessageDialog(null, "Programa Finalizado");
                             break;
                         default:
