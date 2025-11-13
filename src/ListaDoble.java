@@ -30,8 +30,18 @@ public class ListaDoble {
 
     }
 
-    //Metodo para insertar al Final de la lista doble,ERICK
-    public void insertarFinal(int dato) {
+
+    public void insertarFinal(int dato){
+        NodoDoble elemento = new NodoDoble(dato);
+
+        if (listaVacia()) {
+            inicio = elemento;
+            fin = elemento;
+        } else {
+            fin.siguiente = elemento;
+            elemento.anterior = fin;
+            fin = elemento;
+        }
 
     }
 
@@ -120,8 +130,38 @@ public class ListaDoble {
 
     //Eliminar un elemento ERICK
     public int eliminarElemento(int elemento) {
+        if (listaVacia()) {
+            throw new RuntimeException("La lista está vacía. No se puede eliminar.");
+        }
 
-        return -1;
+        NodoDoble actual = inicio;
+        int elementoEliminado;
+        while (actual != null && actual.dato != elemento) {
+            actual = actual.siguiente;
+        }
+        if (actual == null) {
+            return -1;
+        }
+
+        elementoEliminado = actual.dato;
+        if (inicio == fin) {
+            inicio = null;
+            fin = null;
+        }
+        else if (actual == inicio) {
+            inicio = inicio.siguiente;
+            inicio.anterior = null;
+        }
+        else if (actual == fin) {
+            fin = fin.anterior;
+            fin.siguiente = null;
+        }
+        else {
+            actual.anterior.siguiente = actual.siguiente;
+            actual.siguiente.anterior = actual.anterior;
+        }
+
+        return elementoEliminado;
     }
 
     //Metodo para buscar un elemento
