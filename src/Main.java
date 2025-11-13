@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
 
@@ -25,6 +26,7 @@ public class Main {
         */
         public static void main(String[] args) {
 
+
             int opcion = 0;
             int elemento;
             ListaDoble lista = new ListaDoble();
@@ -44,38 +46,51 @@ public class Main {
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
-                        case 1:
+                        case 1://Insertar un elemento al inicio
                             break;
-                        case 2:
+                        case 2://Insertar un elemento al final
                             break;
-                        case 3:
+                        case 3: //Insertar en orden
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento: ",
+                                        "Insertar en orden: ", 3));
+                                lista.insertarEnOrden(elemento);
+                            } catch (NumberFormatException n) {
+                                JOptionPane.showMessageDialog(null, "Error" + n.getMessage(), "Error de ingreso", 0);
+                            }
                             break;
-                        case 4:
-                            if (lista.listaVacia()) {
+                        case 4: //Eliminar al inicio
+                         if (lista.listaVacia()) {
                                 System.out.println("\n> La lista está vacía. No se puede eliminar.");
                             } else {
                                 int elementoEliminado = lista.eliminarInicio();
                                 System.out.println("\n> El nodo inicial ha sido eliminado.");
                                 System.out.println("> Elemento eliminado: " + elementoEliminado);
                             }
+                            break;
+                        case 5: //Eliminar al final
+                            if (lista.listaVacia()) {
+                                JOptionPane.showInternalMessageDialog(null, "La lista esta vacia", "Error ", 1);
+                            } else {
+                                elemento = lista.eliminarFinal();
+                                JOptionPane.showInternalMessageDialog(null, "Se eliminó al elemento " + elemento, "Eliminar elemento al inicio ", 1);
 
+                            }
                             break;
-                        case 5:
+                        case 6: //Eliminar
                             break;
-                        case 6:
+                        case 7: //Buscar elemento
                             break;
-                        case 7:
-                            break;
-                        case 8:
+                        case 8: //MostrarLista
                             if (lista.listaVacia()) {
                                 System.out.println("\n> La lista está vacía. No se puede eliminar.");
                             } else {
                                 lista.mostrarInicioFin();
                             }
-
                             break;
-                        case 9:
-                            if (lista.listaVacia()) {
+                        case 9: //MostrarLista
+                             if (lista.listaVacia()) {
                                 System.out.println("\n> La lista está vacía..");
                             } else {
                                 lista.mostrarFinInicio();
