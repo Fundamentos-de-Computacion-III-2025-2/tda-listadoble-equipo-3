@@ -26,8 +26,12 @@ public class ListaDoble {
             inicio = nuevoNodo;
             fin = nuevoNodo;
         }
-
-
+        
+      else {
+        nuevoNodo.siguiente = inicio;
+        inicio.anterior = nuevoNodo;
+        inicio = nuevoNodo;
+      }
     }
 
 

@@ -26,9 +26,9 @@ public class Main {
     */
     public static void main(String[] args) {
 
-            int opcion = 0;
-            int elemento;
-            ListaDoble lista = new ListaDoble();
+        int opcion = 0;
+        int elemento;
+        ListaDoble lista = new ListaDoble();
 
             do {
                 try {
@@ -46,6 +46,12 @@ public class Main {
                             "Menú de opciones", 3));
                     switch (opcion) {
                         case 1://Insertar un elemento al inicio
+                        try {
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el elemtno: ", "Instar al Inicio", 3));
+                            lista.insertarInicio(elemento);
+                        } catch (NumberFormatException n) {
+                            JOptionPane.showMessageDialog(null, "Error " + n.getMessage(), "Error de ingreso", 0);
+                        }
                             break;
                         case 2://Insertar un elemento al final
                             try {
@@ -114,6 +120,18 @@ public class Main {
                         }
                             break;
                         case 7: //Buscar elemento
+                         try {
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                    "Ingresa el elemento a buscar: ",
+                                    "Buscar elemento: ", 3));
+                            if (lista.buscarElemento(elemento)) {
+                                JOptionPane.showMessageDialog(null, elemento + " encontrado en la lista", "Elemento encontrado", 1);
+                            } else {
+                                JOptionPane.showMessageDialog(null, elemento + " No encontrado en la lista", "Elemento No encontrado", 0);
+                            }
+                        } catch (NumberFormatException n) {
+                            JOptionPane.showMessageDialog(null, "Error" + n.getMessage(), "Error de ingreso", 0);
+                        }
                             break;
                         case 8: //MostrarLista
                             if (lista.listaVacia()) {
